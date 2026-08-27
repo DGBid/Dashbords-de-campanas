@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Análisis · Meta Sierras Carniceras 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Gotham es una fuente de pago (Hoefler&Co). Se usa Montserrat como proxy geométrico
+     gratuito. Si tenés la licencia de Gotham, cambiá 'Montserrat' por 'Gotham' abajo. -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --amarillo:#FFCC29; --gris:#1D1D1C; --negro:#000000;
+    --bg:#F4F4F2; --card:#FFFFFF; --ink:#1D1D1C; --ink-soft:#6E6E6A;
+    --rule:#E3E3DF; --track:#EDEDEA;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Montserrat',-apple-system,Segoe UI,sans-serif;background:var(--bg);
+    color:var(--ink);padding:36px 44px 60px}
+  .head{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+    border-bottom:3px solid var(--gris);padding-bottom:20px;margin-bottom:26px}
+  .head-left{display:flex;flex-direction:column;gap:4px}
+  .eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  .periodo{font-size:12px;color:var(--ink-soft);font-weight:600;margin-top:2px}
+  h1{font-weight:800;font-size:30px;margin:0;letter-spacing:-.4px;text-transform:uppercase}
+  h1 .amar{color:var(--gris);border-bottom:5px solid var(--amarillo);padding-bottom:1px}
+  .logo{height:52px;width:auto;display:block}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media (max-width:1400px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:700px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:22px 24px;
+    position:relative;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .card::before{content:"";position:absolute;left:0;top:0;height:4px;width:52px;background:var(--amarillo);
+    border-radius:8px 0 8px 0}
+  .card h2{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--gris);
+    margin:6px 0 3px;font-weight:700}
+  .explica{font-size:11.5px;color:var(--ink-soft);margin:0 0 16px;line-height:1.5;font-weight:500}
+  .kpicard{background:var(--gris);border-radius:8px;padding:24px 26px;margin-bottom:18px}
+  .kpirow{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+  .kpi{border-right:1px solid rgba(255,255,255,.15);padding-right:16px}
+  .kpi:last-child{border-right:none}
+  .kpi .num{font-size:36px;font-weight:800;color:var(--amarillo);line-height:1;letter-spacing:-.5px}
+  .kpi .cap{color:#C9C9C4;font-size:11px;margin-top:7px;letter-spacing:.6px;text-transform:uppercase;font-weight:600}
+  .row{display:flex;align-items:center;gap:8px;margin:9px 0}
+  .lbl{flex:1 1 0;min-width:0;font-size:12px;line-height:1.3;font-weight:500}
+  .val{width:78px;flex:0 0 78px;text-align:right;font-variant-numeric:tabular-nums;
+    font-size:11.5px;color:var(--ink-soft);font-weight:600}
+  .track{width:82px;flex:0 0 82px;height:11px;background:var(--track);border-radius:6px;overflow:hidden}
+  .bar{display:block;height:100%;background:var(--gris);border-radius:6px}
+  .card:nth-child(2n) .bar{background:var(--amarillo)}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th,td{padding:9px 6px;text-align:right;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+  th:first-child,td.vn{text-align:left;font-variant-numeric:normal;font-weight:600}
+  th{color:var(--ink-soft);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.4px}
+  tbody tr:hover{background:#FBFBFA}
+  .note{color:var(--ink-soft);font-size:11.5px;margin-top:12px;line-height:1.6;border-top:1px solid var(--rule);
+    padding-top:10px;font-weight:500}
+  .span2{grid-column:1/-1}
+  @media (max-width:640px){.track{width:60px;flex-basis:60px} .kpirow{grid-template-columns:repeat(2,1fr);row-gap:18px}
+    .kpi{border-right:none}}
+</style></head><body>
+
+<div class="head">
+  <div class="head-left">
+    <div class="eyebrow">Ficha de análisis de campaña</div>
+    <h1><span class="amar">Meta Sierras Carniceras 2</span></h1>
+    <div class="periodo">Período analizado: 23/07/2026 — 25/08/2026</div>
+  </div>
+  
+</div>
+
+<div class="kpicard"><div class="kpirow">
+  <div class="kpi"><div class="num">237</div><div class="cap">Leads únicos</div></div>
+  <div class="kpi"><div class="num">4</div><div class="cap">Pasados a CRM</div></div>
+  <div class="kpi"><div class="num">1.7%</div><div class="cap">Tasa de conversión</div></div>
+  <div class="kpi"><div class="num">8.0%</div><div class="cap">Alta intención (3-5)</div></div>
+  <div class="kpi"><div class="num">44.3%</div><div class="cap">% avance (105)</div></div>
+  <div class="kpi"><div class="num">43.8%</div><div class="cap">Avanza tras audio (203)</div></div>
+</div></div>
+
+<div class="grid">
+  <div class="card"><h2>Tasa de respuesta del cliente por tipo de mensaje</h2>
+    <p class="explica">Qué formato de mensaje del vendedor consigue que el cliente conteste de inmediato.</p><div class="row"><div class="lbl">Audio</div><div class="track"><div class="bar" style="width:40.1%"></div></div><div class="val">40.1%</div></div><div class="row"><div class="lbl">Link</div><div class="track"><div class="bar" style="width:3.8%"></div></div><div class="val">3.8%</div></div><div class="row"><div class="lbl">Multimedia</div><div class="track"><div class="bar" style="width:4.9%"></div></div><div class="val">4.9%</div></div><div class="row"><div class="lbl">Texto</div><div class="track"><div class="bar" style="width:16.0%"></div></div><div class="val">16.0%</div></div><div class="row"><div class="lbl">Automático</div><div class="track"><div class="bar" style="width:21.1%"></div></div><div class="val">21.1%</div></div>
+    <div class="note">Cuenta como respuesta que el mensaje siguiente sea del cliente. Favorece al último ítem de la ráfaga (suele ser el audio).</div></div>
+
+  <div class="card"><h2>Conversión a CRM por vendedor</h2>
+    <p class="explica">Qué proporción de los leads de cada vendedor terminó pasando a venta telefónica (CRM).</p><div class="row"><div class="lbl">Marcelo Gomez</div><div class="track"><div class="bar" style="width:0.0%"></div></div><div class="val">0.0%</div></div><div class="row"><div class="lbl">Yamila Hardach</div><div class="track"><div class="bar" style="width:2.9%"></div></div><div class="val">2.9%</div></div><div class="row"><div class="lbl">Mariana Calgaterra</div><div class="track"><div class="bar" style="width:2.8%"></div></div><div class="val">2.8%</div></div><div class="row"><div class="lbl">Felipe Gomez Smith</div><div class="track"><div class="bar" style="width:0.0%"></div></div><div class="val">0.0%</div></div></div>
+
+  <div class="card"><h2>Avance según cantidad de mensajes en la ráfaga</h2>
+    <p class="explica">Si mandar muchos mensajes seguidos de golpe ayuda o satura al cliente.</p><div class="row"><div class="lbl">≤2 mensajes</div><div class="track"><div class="bar" style="width:67.9%"></div></div><div class="val">67.9% (28)</div></div><div class="row"><div class="lbl">3 mensajes</div><div class="track"><div class="bar" style="width:55.0%"></div></div><div class="val">55.0% (20)</div></div><div class="row"><div class="lbl">4 mensajes</div><div class="track"><div class="bar" style="width:40.7%"></div></div><div class="val">40.7% (182)</div></div><div class="row"><div class="lbl">5+ mensajes</div><div class="track"><div class="bar" style="width:16.7%"></div></div><div class="val">16.7% (6)</div></div>
+    <div class="note">Ráfaga = mensajes consecutivos del vendedor antes de que hable el cliente.</div></div>
+
+  <div class="card"><h2>Índice de intención del lead (0-5)</h2>
+    <p class="explica">Qué tan “calientes” llegan los leads de esta campaña, según lo que piden.</p><div class="row"><div class="lbl">Nivel 0 — Curiosidad (mensaje genérico)</div><div class="track"><div class="bar" style="width:53.6%"></div></div><div class="val">53.6%</div></div><div class="row"><div class="lbl">Nivel 1 — Interés genérico (precio sin especificar)</div><div class="track"><div class="bar" style="width:27.0%"></div></div><div class="val">27.0%</div></div><div class="row"><div class="lbl">Nivel 2 — Interés específico (modelo/HP puntual)</div><div class="track"><div class="bar" style="width:11.4%"></div></div><div class="val">11.4%</div></div><div class="row"><div class="lbl">Nivel 3 — Evaluación (2+ datos técnicos juntos)</div><div class="track"><div class="bar" style="width:3.0%"></div></div><div class="val">3.0%</div></div><div class="row"><div class="lbl">Nivel 4 — Compra potencial (financiación/envío)</div><div class="track"><div class="bar" style="width:3.4%"></div></div><div class="val">3.4%</div></div><div class="row"><div class="lbl">Nivel 5 — Alta intención (dato de negocio/pago)</div><div class="track"><div class="bar" style="width:1.7%"></div></div><div class="val">1.7%</div></div>
+    <div class="note">Se calcula sobre todos los mensajes del lead (todas sus sesiones), no solo el primero.</div></div>
+
+  <div class="card"><h2>Financiación enviada por el vendedor — por canal</h2>
+    <p class="explica">Si enviar la financiación (texto o foto) se asocia a que el cliente siga la charla.</p><div class="row"><div class="lbl">Solo foto (multimedia)</div><div class="track"><div class="bar" style="width:44.3%"></div></div><div class="val">44.3% (219)</div></div><div class="row"><div class="lbl">Ambas (texto + foto)</div><div class="track"><div class="bar" style="width:88.9%"></div></div><div class="val">88.9% (9)</div></div><div class="row"><div class="lbl">No le enviaron financiación</div><div class="track"><div class="bar" style="width:22.2%"></div></div><div class="val">22.2% (9)</div></div>
+    <div class="note">A 228 de 237 leads (96.2%) el vendedor les envió financiación (texto y/o foto — incluye la foto que manda Marcelo y el flyer "0,30 y 60 días" de Yamila/Mariana). % = avanza después.</div></div>
+
+  <div class="card"><h2>Cuando preguntan precio, ¿cómo responde el vendedor?</h2>
+    <p class="explica">Qué hace el vendedor cuando le preguntan el precio, y qué tan seguido el cliente sigue.</p>
+    <table><thead><tr><th>Respuesta</th><th>Veces</th><th>% avanza</th></tr></thead><tbody><tr><td class='vn'>Combina: foto + link</td><td>76</td><td>40.8%</td></tr><tr><td class='vn'>Solo link</td><td>11</td><td>18.2%</td></tr><tr><td class='vn'>Otro (sin $, foto ni link)</td><td>7</td><td>0.0%</td></tr><tr><td class='vn'>Combina: texto $ + link</td><td>1</td><td>100.0%</td></tr></tbody></table>
+    <div class="note">Sobre 95 conversaciones donde el cliente preguntó precio. "Combina" = mandó más de un canal junto; "Las tres" = texto con $ + foto + link.</div></div>
+
+  <div class="card"><h2>Dónde murió la conversación</h2>
+    <p class="explica">En qué momento se corta la conversación, para saber dónde está la fuga.</p><div class="row"><div class="lbl">Después de audio</div><div class="track"><div class="bar" style="width:60.9%"></div></div><div class="val">60.9% (142)</div></div><div class="row"><div class="lbl">Última palabra del cliente</div><div class="track"><div class="bar" style="width:12.0%"></div></div><div class="val">12.0% (28)</div></div><div class="row"><div class="lbl">Después de texto</div><div class="track"><div class="bar" style="width:10.7%"></div></div><div class="val">10.7% (25)</div></div><div class="row"><div class="lbl">Después de multimedia</div><div class="track"><div class="bar" style="width:6.4%"></div></div><div class="val">6.4% (15)</div></div><div class="row"><div class="lbl">Después de automático</div><div class="track"><div class="bar" style="width:6.0%"></div></div><div class="val">6.0% (14)</div></div><div class="row"><div class="lbl">Después de link</div><div class="track"><div class="bar" style="width:3.9%"></div></div><div class="val">3.9% (9)</div></div>
+    
+    <div class="note">No incluye los leads que convirtieron a CRM.</div></div>
+
+  <div class="card"><h2>Producto consultado (desvío de campaña)</h2>
+    <p class="explica">Si la campaña de un producto termina generando consultas por otros.</p><div class="row"><div class="lbl">Genérico / no especifica producto</div><div class="track"><div class="bar" style="width:75.5%"></div></div><div class="val">75.5%</div></div><div class="row"><div class="lbl">Sierra carnicera</div><div class="track"><div class="bar" style="width:23.2%"></div></div><div class="val">23.2%</div></div><div class="row"><div class="lbl">Horno</div><div class="track"><div class="bar" style="width:0.4%"></div></div><div class="val">0.4%</div></div><div class="row"><div class="lbl">Envasadora/Selladora al vacío</div><div class="track"><div class="bar" style="width:0.4%"></div></div><div class="val">0.4%</div></div><div class="row"><div class="lbl">Moledora / Picadora</div><div class="track"><div class="bar" style="width:0.4%"></div></div><div class="val">0.4%</div></div>
+    <div class="note">Producto anunciado: Sierra carnicera.</div></div>
+
+  <div class="card span2"><h2>Alcance por vendedor (a cuántos leads les mandó cada tipo)</h2>
+    <p class="explica">A cuántos leads distintos cada vendedor les mandó al menos un mensaje de cada tipo.</p>
+    <table><thead><tr><th>Vendedor</th><th>Total leads</th><th>Audio</th><th>Link</th><th>Multimedia</th><th>Texto</th><th>Automático</th></tr></thead>
+    <tbody><tr><td class='vn'>Marcelo Gomez</td><td><b>93</b></td><td>93</td><td>93</td><td>93</td><td>86</td><td>6</td></tr><tr><td class='vn'>Yamila Hardach</td><td><b>70</b></td><td>54</td><td>65</td><td>65</td><td>66</td><td>5</td></tr><tr><td class='vn'>Mariana Calgaterra</td><td><b>72</b></td><td>55</td><td>69</td><td>65</td><td>69</td><td>6</td></tr><tr><td class='vn'>Felipe Gomez Smith</td><td><b>2</b></td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td></tr></tbody></table></div>
+
+  <div class="card span2"><h2>Efectividad por vendedor, controlando por intención del lead</h2>
+    <p class="explica">Compara a los vendedores contra leads de calidad parecida, no en bruto.</p>
+    <table><thead><tr><th>Vendedor</th><th>Genérico (0)</th><th>Solo precio (1)</th><th>Intermedio (2)</th><th>Alta intención (3-5)</th><th>Promedio general</th></tr></thead>
+    <tbody><tr><td class='vn'>Marcelo Gomez</td><td>33% (52)</td><td>64% (22)</td><td>100% (12)</td><td>86% (7)</td><td><b>53% (93)</b></td></tr><tr><td class='vn'>Yamila Hardach</td><td>22% (32)</td><td>52% (21)</td><td>70% (10)</td><td>86% (7)</td><td><b>44% (70)</b></td></tr><tr><td class='vn'>Mariana Calgaterra</td><td>24% (41)</td><td>38% (21)</td><td>80% (5)</td><td>80% (5)</td><td><b>36% (72)</b></td></tr><tr><td class='vn'>Felipe Gomez Smith</td><td>50% (2)</td><td>—</td><td>—</td><td>—</td><td><b>50% (2)</b></td></tr></tbody></table></div>
+</div></body></html>
