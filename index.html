@@ -30,6 +30,7 @@
 
         body {
             min-height: 100vh;
+
             background:
                 radial-gradient(
                     circle at 80% 0%,
@@ -54,7 +55,9 @@
             padding: 54px 0 80px;
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================= */
 
         .header {
             display: flex;
@@ -114,9 +117,7 @@
 
         .header-meta {
             flex-shrink: 0;
-
             padding-top: 42px;
-
             text-align: right;
         }
 
@@ -138,7 +139,9 @@
             font-weight: 700;
         }
 
-        /* SECTION HEADER */
+        /* =========================
+           SECTION
+        ========================= */
 
         .section-header {
             display: flex;
@@ -162,12 +165,13 @@
             color: var(--muted);
         }
 
-        /* CARDS */
+        /* =========================
+           CARDS
+        ========================= */
 
         .grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-
             gap: 16px;
         }
 
@@ -203,7 +207,8 @@
             content: "";
 
             position: absolute;
-            inset: auto -50px -80px auto;
+            right: -50px;
+            bottom: -80px;
 
             width: 170px;
             height: 170px;
@@ -253,7 +258,6 @@
 
             font-size: 10px;
             font-weight: 800;
-
             letter-spacing: 1.1px;
 
             text-transform: uppercase;
@@ -305,8 +309,6 @@
             font-weight: 700;
 
             color: var(--text);
-
-            transition: color 0.25s ease;
         }
 
         .arrow {
@@ -331,7 +333,9 @@
             transform: translateX(3px);
         }
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             display: flex;
@@ -347,7 +351,9 @@
             color: var(--muted);
         }
 
-        /* RESPONSIVE */
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
         @media (max-width: 800px) {
 
@@ -387,6 +393,8 @@
 
 <div class="page">
 
+    <!-- HEADER -->
+
     <header class="header">
 
         <div>
@@ -403,8 +411,8 @@
 
             <p class="intro">
                 Central de análisis de campañas publicitarias.
-                Accedé a métricas, conversaciones, comportamiento de leads
-                y resultados comerciales desde un único lugar.
+                Accedé a métricas, conversaciones, comportamiento
+                de leads y resultados desde un único lugar.
             </p>
 
         </div>
@@ -424,6 +432,8 @@
     </header>
 
 
+    <!-- DASHBOARDS -->
+
     <main>
 
         <div class="section-header">
@@ -441,11 +451,14 @@
 
         <div class="grid">
 
-            <!-- FIL 400 -->
+
+            <!-- =====================
+                 FIL 400
+            ====================== -->
 
             <a
                 class="card"
-                href="./fil400.html"
+                href="./fil400%20Ago.html"
             >
 
                 <div class="card-top">
@@ -459,9 +472,10 @@
                     </h2>
 
                     <p>
-                        Análisis de rendimiento de campaña,
-                        comportamiento de consultas y resultados
-                        obtenidos para la fileteadora FIL-400.
+                        Análisis de rendimiento de la campaña
+                        publicitaria de la fileteadora FIL-400,
+                        consultas generadas y comportamiento
+                        de los contactos.
                     </p>
 
                 </div>
@@ -473,11 +487,13 @@
                     </span>
 
                     <span class="open">
+
                         Ver análisis
 
                         <span class="arrow">
                             →
                         </span>
+
                     </span>
 
                 </div>
@@ -485,11 +501,13 @@
             </a>
 
 
-            <!-- SIERRAS GENERAL -->
+            <!-- =====================
+                 SIERRAS GENERAL
+            ====================== -->
 
             <a
                 class="card"
-                href="./sierras-general.html"
+                href="./sierras%20general.html"
             >
 
                 <div class="card-top">
@@ -499,13 +517,13 @@
                     </span>
 
                     <h2>
-                        Sierras · Campaña general
+                        Sierras · Análisis general
                     </h2>
 
                     <p>
-                        Visión general del desempeño de las campañas
-                        de sierras carniceras y evolución de sus
-                        principales indicadores.
+                        Visión global de las campañas de
+                        sierras carniceras, evolución de resultados
+                        y principales indicadores del período.
                     </p>
 
                 </div>
@@ -517,11 +535,13 @@
                     </span>
 
                     <span class="open">
+
                         Ver análisis
 
                         <span class="arrow">
                             →
                         </span>
+
                     </span>
 
                 </div>
@@ -529,11 +549,13 @@
             </a>
 
 
-            <!-- SIERRAS TABLERO -->
+            <!-- =====================
+                 SIERRAS 1
+            ====================== -->
 
             <a
                 class="card"
-                href="./sierras-tablero.html"
+                href="./sierras%201.html"
             >
 
                 <div class="card-top">
@@ -543,13 +565,13 @@
                     </span>
 
                     <h2>
-                        Sierras Carniceras
+                        Sierras Carniceras · Análisis 1
                     </h2>
 
                     <p>
-                        Tablero de métricas de campaña con foco
-                        en consultas, rendimiento publicitario
-                        y calidad de los contactos generados.
+                        Tablero de análisis de campaña con foco
+                        en rendimiento publicitario, consultas
+                        recibidas y comportamiento de los leads.
                     </p>
 
                 </div>
@@ -557,15 +579,17 @@
                 <div class="card-bottom">
 
                     <span class="date">
-                        2026
+                        Campaña Sierras
                     </span>
 
                     <span class="open">
+
                         Ver análisis
 
                         <span class="arrow">
                             →
                         </span>
+
                     </span>
 
                 </div>
@@ -573,11 +597,13 @@
             </a>
 
 
-            <!-- SIERRAS JULIO -->
+            <!-- =====================
+                 SIERRAS 2
+            ====================== -->
 
             <a
                 class="card"
-                href="./sierras-julio.html"
+                href="./sierras%202.html"
             >
 
                 <div class="card-top">
@@ -587,13 +613,13 @@
                     </span>
 
                     <h2>
-                        Sierras · Análisis Julio
+                        Sierras Carniceras · Análisis 2
                     </h2>
 
                     <p>
-                        Análisis específico del período de campaña,
-                        incluyendo comportamiento de leads
-                        y conversaciones comerciales.
+                        Análisis detallado de una segunda campaña
+                        de sierras, incluyendo métricas de anuncios
+                        y comportamiento de conversaciones.
                     </p>
 
                 </div>
@@ -601,25 +627,30 @@
                 <div class="card-bottom">
 
                     <span class="date">
-                        Julio 2026
+                        Campaña Sierras
                     </span>
 
                     <span class="open">
+
                         Ver análisis
 
                         <span class="arrow">
                             →
                         </span>
+
                     </span>
 
                 </div>
 
             </a>
+
 
         </div>
 
     </main>
 
+
+    <!-- FOOTER -->
 
     <footer>
 
@@ -628,7 +659,7 @@
         </span>
 
         <span>
-            Dashboards internos de análisis
+            Dashboards de análisis
         </span>
 
     </footer>
