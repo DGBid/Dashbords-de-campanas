@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BID Argentina | Meta Preventas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#FFCC29;
+    --dark:#1D1D1C;
+    --black:#000000;
+    --gray-1:#4A4A48;
+    --gray-2:#8A8A87;
+    --gray-bg:#F4F4F2;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    background:var(--gray-bg);
+    color:var(--dark);
+  }
+  header{
+    background:var(--dark);
+    color:var(--white);
+    padding:26px 40px 22px;
+    border-bottom:5px solid var(--yellow);
+  }
+  .wordmark{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:12px;
+    justify-content:center;
+  }
+  .wordmark .brand{
+    font-weight:800;
+    font-size:15px;
+    letter-spacing:1px;
+    color:var(--yellow);
+  }
+  .wordmark .sep{color:var(--gray-2); font-size:13px;}
+  h1{
+    margin:0 0 6px;
+    font-size:28px;
+    font-weight:700;
+    line-height:1.15;
+    text-align:center;
+  }
+  .subtitle{
+    color:#D8D8D6;
+    font-size:14.5px;
+    font-weight:500;
+    text-align:center;
+  }
+  main{
+    width:100%;
+    margin:0;
+    padding:28px 32px 60px;
+  }
+  .kpi-row{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1%;
+    margin-bottom:24px;
+  }
+  .kpi-row.kpi-row-2{
+    grid-template-columns:repeat(2, 1fr);
+    gap:2%;
+  }
+  .kpi{
+    background:var(--white);
+    border-radius:6px;
+    padding:18px 20px;
+    border-left:4px solid var(--yellow);
+  }
+  .kpi .label{
+    font-size:12px;
+    color:var(--gray-1);
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .kpi .value{
+    font-size:26px;
+    font-weight:800;
+    color:var(--dark);
+    line-height:1;
+  }
+  .kpi .foot{
+    font-size:11.5px;
+    color:var(--gray-2);
+    margin-top:6px;
+    font-weight:500;
+  }
+  .callout{
+    background:#FFF7DD;
+    border:1px solid var(--yellow);
+    border-radius:6px;
+    padding:14px 18px;
+    margin-bottom:26px;
+    font-size:13px;
+    line-height:1.5;
+    color:var(--dark);
+    text-align:center;
+  }
+  .panel{
+    background:var(--white);
+    border-radius:6px;
+    padding:24px 26px 22px;
+    margin-bottom:22px;
+  }
+  .panel h2{
+    font-size:17px;
+    font-weight:700;
+    margin:0 0 4px;
+    text-align:center;
+  }
+  .panel h3{
+    font-size:13.5px;
+    font-weight:700;
+    margin:0 0 4px;
+    text-align:center;
+  }
+  .panel .desc{
+    font-size:12.5px;
+    color:var(--gray-1);
+    margin-bottom:14px;
+    line-height:1.45;
+    text-align:center;
+  }
+  .chart-wrap{
+    position:relative;
+    height:220px;
+  }
+  .gantt{
+    margin-top:6px;
+    position:relative;
+  }
+  .gantt-row{
+    display:flex;
+    align-items:center;
+    height:30px;
+    margin-bottom:4px;
+    position:relative;
+  }
+  .gantt-label{
+    width:190px;
+    flex-shrink:0;
+    font-size:12px;
+    font-weight:600;
+    color:var(--gray-1);
+    padding-right:10px;
+  }
+  .gantt-track{
+    position:relative;
+    flex:1;
+    height:18px;
+    background:#EFEFEC;
+    border-radius:3px;
+  }
+  .gantt-bar{
+    position:absolute;
+    top:0;
+    height:100%;
+    border-radius:3px;
+    opacity:0.9;
+  }
+  .gantt-bar.c1{background:#FFCC29;}
+  .gantt-bar.c2{background:#E8A93C;}
+  .gantt-bar.c3{background:#C97B2E;}
+  .gantt-bar.c4{background:#8A5A2E;}
+  .axis-labels{
+    display:flex;
+    margin-left:200px;
+    justify-content:space-between;
+    font-size:10.5px;
+    color:var(--gray-2);
+    margin-top:6px;
+    font-weight:500;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+  }
+  th{
+    text-align:left;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.4px;
+    color:var(--gray-1);
+    font-weight:700;
+    padding:8px 10px;
+    border-bottom:2px solid var(--dark);
+  }
+  td{
+    padding:10px 10px;
+    border-bottom:1px solid #E7E7E4;
+    color:var(--dark);
+  }
+  tr:last-child td{border-bottom:none;}
+  .num{text-align:right; font-variant-numeric:tabular-nums;}
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  .bar-list .row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+  }
+  .bar-list .name{
+    width:130px;
+    flex-shrink:0;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--gray-1);
+  }
+  .bar-list .track{
+    flex:1;
+    height:14px;
+    background:#EFEFEC;
+    border-radius:3px;
+    overflow:hidden;
+  }
+  .bar-list .fill{
+    height:100%;
+    background:var(--yellow);
+    border-radius:3px;
+  }
+  .bar-list .fill.dark{background:var(--dark);}
+  .bar-list .count{
+    width:70px;
+    text-align:right;
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--dark);
+  }
+  footer{
+    text-align:center;
+    font-size:11.5px;
+    color:var(--gray-2);
+    padding:20px 0 40px;
+  }
+  @media (max-width:820px){
+    .two-col{grid-template-columns:1fr;}
+    .gantt-label{width:120px; font-size:11px;}
+    .axis-labels{margin-left:130px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">
+    <span class="brand">BID ARGENTINA</span>
+    <span class="sep">/</span>
+    <span style="font-size:13px;color:#D8D8D6;">Marketing &amp; Datos</span>
+  </div>
+  <h1>Meta Preventas</h1>
+  <div class="subtitle">Período analizado: 21 de julio – 12 de agosto de 2026</div>
+</header>
+
+<main>
+
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <div class="callout">
+    Kommo no guarda UTM en los leads, así que no hay forma de saber qué lead puntual vino de qué campaña —
+    los números por campaña son datos agregados que reporta Meta. El detalle por lead sale del primer mensaje
+    de WhatsApp (el texto automático del anuncio), que sí permite segmentar por producto.
+  </div>
+
+  <div class="two-col">
+    <div class="panel">
+      <h2>Volumen diario de leads vs. campañas activas</h2>
+      <div class="desc">Cada barra es un lead creado ese día en Kommo. Las franjas de abajo muestran qué campaña de Meta estaba activa ese mismo día.</div>
+      <div class="chart-wrap" id="dailyChart"></div>
+      <div class="gantt" id="ganttChart"></div>
+      <div class="axis-labels" id="axisLabels"></div>
+    </div>
+    <div class="panel">
+      <h2>Campañas de Meta — preventa</h2>
+      <div class="desc">Contactos que Meta le atribuye a cada campaña (21 jul – 12 ago).</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Campaña</th>
+            <th>Creada</th>
+            <th>Finalizó</th>
+            <th class="num">Totales</th>
+            <th class="num">Nuevos</th>
+          </tr>
+        </thead>
+        <tbody id="campaignsTable"></tbody>
+        <tfoot>
+          <tr style="font-weight:700;">
+            <td colspan="3">Total</td>
+            <td class="num" id="totContactos"></td>
+            <td class="num" id="totNuevos"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Rendimiento de marketing (Meta Ads)</h2>
+    <div class="desc">Alcance, impresiones y costos reales de cada campaña, mismo período. <strong>CTR</strong>: % de gente que vio el anuncio y le hizo clic. <strong>CPM</strong>: costo cada 1.000 veces que se mostró el anuncio.</div>
+    <div class="kpi-row" id="marketingKpis" style="margin-bottom:20px;"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Campaña</th>
+          <th class="num">Alcance</th>
+          <th class="num">Impresiones</th>
+          <th class="num">Frecuencia</th>
+          <th class="num">CTR</th>
+          <th class="num">Clics</th>
+          <th class="num">Gasto (ARS)</th>
+          <th class="num">CPM (ARS)</th>
+          <th class="num">Costo / contacto nuevo</th>
+        </tr>
+      </thead>
+      <tbody id="marketingTable"></tbody>
+    </table>
+    <div class="desc" style="margin-top:12px;">
+      El alcance está sumado por campaña; como las 4 corrieron en simultáneo, probablemente hay audiencia
+      repetida entre ellas, así que no es alcance único real. La frecuencia de "Remarketing preventa" (4.19)
+      es la más alta, algo esperable porque apunta a gente que ya había mostrado interés.
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="panel">
+      <h2>Leads creados por día de la semana</h2>
+      <div class="desc">Casi no hay leads los fines de semana — la preventa corrió de lunes a viernes.</div>
+      <div class="bar-list" id="weekdayBars"></div>
+    </div>
+    <div class="panel">
+      <h2>Segmentación fina por primer mensaje (WhatsApp)</h2>
+      <div class="desc">
+        El texto automático del primer mensaje revela el producto de interés con más detalle que las etiquetas
+        de Kommo (separa "embutidoras" de "envasado", por ejemplo).
+      </div>
+      <table>
+        <thead>
+          <tr><th>Template de mensaje</th><th class="num">Leads</th><th class="num">%</th></tr>
+        </thead>
+        <tbody id="templateTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Conversión y comportamiento en Kommo</h2>
+    <div class="desc">
+      Armado directo de las 519 conversaciones, sin depender de los datos de Meta.
+    </div>
+
+    <div class="kpi-row kpi-row-2" id="kommoKpis" style="margin-bottom:24px;"></div>
+
+    <div class="two-col" style="margin-bottom:40px;">
+      <div>
+        <h3>Tasa de conversión a "Pasado a CRM" por vendedor</h3>
+        <div class="desc">% de los leads de cada vendedor que terminaron pasando a CRM.</div>
+        <div class="bar-list" id="vendorConvBars"></div>
+      </div>
+      <div>
+        <h3>Leads por categoría de producto</h3>
+        <div class="desc">Según etiqueta de Kommo, con cuántos de cada categoría pasaron a CRM.</div>
+        <table>
+          <thead><tr><th>Categoría</th><th class="num">Leads</th><th class="num">Pasaron a CRM</th><th class="num">Tasa</th></tr></thead>
+          <tbody id="categoryTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <h3>¿Dónde "muere" la conversación?</h3>
+        <div class="desc">
+          En 429 de 494 leads no convertidos, el último mensaje lo mandó el vendedor y el cliente nunca
+          respondió. Tipo de mensaje con el que se quedó esa conversación.
+        </div>
+        <div class="bar-list" id="deathBars"></div>
+      </div>
+      <div>
+        <h3>Índice de interés (primeros mensajes)</h3>
+        <div class="desc">
+          Mensajes que manda el cliente al arrancar, antes de que el vendedor responda por primera vez.
+          Es la señal más pura de entusiasmo inicial.
+        </div>
+        <table>
+          <thead>
+            <tr><th>Nivel</th><th>Mensajes iniciales</th><th class="num">Leads</th><th class="num">CRM</th><th class="num">Tasa</th></tr>
+          </thead>
+          <tbody id="interestTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Ventas confirmadas (Kommo × Odoo)</h2>
+    <div class="desc">
+      Crucé los 519 leads de Kommo contra las 113 órdenes de Odoo del mismo período, usando el
+      <strong>teléfono</strong> como clave (normalizado, porque cada sistema lo guarda con formato distinto).
+      Esto es un piso, no el número final: quedan afuera ventas donde el cliente compró con otro teléfono,
+      o que todavía no facturaron.
+    </div>
+
+    <div class="kpi-row" id="revenueKpis" style="margin-bottom:20px;"></div>
+
+    <table>
+      <thead>
+        <tr><th>Vendedor (Odoo)</th><th>Cliente</th><th>Fecha</th><th class="num">Total (ARS)</th><th>Estado en Kommo</th></tr>
+      </thead>
+      <tbody id="revenueTable"></tbody>
+      <tfoot>
+        <tr style="font-weight:700;">
+          <td colspan="3">Total confirmado</td>
+          <td class="num" id="revenueTotal"></td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="desc" style="margin-top:14px;">
+      Dato para prestar atención: de las 10 ventas confirmadas, <strong>5 vienen de leads que nunca se marcaron
+      "Pasado a CRM"</strong> en Kommo — convirtieron igual, pero el estado del pipeline no lo refleja. Y de los
+      25 leads que sí se marcaron "Pasado a CRM", solo 5 (20%) tienen una venta confirmada hasta ahora en Odoo —
+      el resto puede seguir en curso, haberse caído, o haber comprado con otro contacto que no matcheó.
+    </div>
+  </div>
+
+</main>
+
+<footer>BID Argentina — Análisis interno de marketing · Datos: Kommo CRM &amp; Meta Ads Manager</footer>
+
+<script>
+const DATA = {"daily": [{"fecha": "2026-07-22", "leads": 59}, {"fecha": "2026-07-23", "leads": 46}, {"fecha": "2026-07-24", "leads": 17}, {"fecha": "2026-07-27", "leads": 46}, {"fecha": "2026-07-28", "leads": 59}, {"fecha": "2026-07-29", "leads": 68}, {"fecha": "2026-07-30", "leads": 57}, {"fecha": "2026-07-31", "leads": 16}, {"fecha": "2026-08-04", "leads": 28}, {"fecha": "2026-08-05", "leads": 55}, {"fecha": "2026-08-06", "leads": 47}, {"fecha": "2026-08-07", "leads": 17}, {"fecha": "2026-08-13", "leads": 1}, {"fecha": "2026-08-17", "leads": 1}, {"fecha": "2026-08-23", "leads": 1}, {"fecha": "2026-08-28", "leads": 1}], "vendor": {"Marcelo Gomez": 210, "Mariana Calgaterra": 192, "Yamila Hardach": 112}, "tag_breakdown": {"General": 271, "Envasado": 155, "C\u00e1rnicos": 93}, "template_breakdown": {"Preventa general": 145, "Quiero m\u00e1s informaci\u00f3n": 91, "Preventa (gen\u00e9rico)": 79, "L\u00ednea c\u00e1rnicos": 53, "Manual / org\u00e1nico": 50, "Embutidoras": 49, "L\u00ednea de envasado": 39, "Me gustar\u00eda info (esto)": 9, "Interesa productos": 4}, "meta_campaigns": [{"nombre": "PREVENTA JULIO", "creada": "2026-07-21", "fin": "2026-08-08", "total": 309, "nuevos": 273}, {"nombre": "Comienza la Preventa", "creada": "2026-07-22", "fin": "2026-08-12", "total": 149, "nuevos": 130}, {"nombre": "Remarketing preventa", "creada": "2026-08-04", "fin": "2026-08-12", "total": 139, "nuevos": 110}, {"nombre": "Extendemos la Preventa", "creada": "2026-08-04", "fin": "2026-08-12", "total": 66, "nuevos": 55}], "total_leads_kommo": 519, "total_nuevos_meta": 568, "total_contactos_meta": 663, "full_daily": [{"fecha": "2026-07-21", "leads": 0}, {"fecha": "2026-07-22", "leads": 59}, {"fecha": "2026-07-23", "leads": 46}, {"fecha": "2026-07-24", "leads": 17}, {"fecha": "2026-07-25", "leads": 0}, {"fecha": "2026-07-26", "leads": 0}, {"fecha": "2026-07-27", "leads": 46}, {"fecha": "2026-07-28", "leads": 59}, {"fecha": "2026-07-29", "leads": 68}, {"fecha": "2026-07-30", "leads": 57}, {"fecha": "2026-07-31", "leads": 16}, {"fecha": "2026-08-01", "leads": 0}, {"fecha": "2026-08-02", "leads": 0}, {"fecha": "2026-08-03", "leads": 0}, {"fecha": "2026-08-04", "leads": 28}, {"fecha": "2026-08-05", "leads": 55}, {"fecha": "2026-08-06", "leads": 47}, {"fecha": "2026-08-07", "leads": 17}, {"fecha": "2026-08-08", "leads": 0}, {"fecha": "2026-08-09", "leads": 0}, {"fecha": "2026-08-10", "leads": 0}, {"fecha": "2026-08-11", "leads": 0}, {"fecha": "2026-08-12", "leads": 0}], "campaigns_visual": [{"nombre": "PREVENTA JULIO", "left_pct": 0.0, "width_pct": 81.82, "creada": "2026-07-21", "fin": "2026-08-08", "total": 309, "nuevos": 273}, {"nombre": "Comienza la Preventa", "left_pct": 4.55, "width_pct": 95.45, "creada": "2026-07-22", "fin": "2026-08-12", "total": 149, "nuevos": 130}, {"nombre": "Remarketing preventa", "left_pct": 63.64, "width_pct": 36.36, "creada": "2026-08-04", "fin": "2026-08-12", "total": 139, "nuevos": 110}, {"nombre": "Extendemos la Preventa", "left_pct": 63.64, "width_pct": 36.36, "creada": "2026-08-04", "fin": "2026-08-12", "total": 66, "nuevos": 55}], "axis_start": "2026-07-21", "axis_end": "2026-08-12", "total_days": 22};
+
+const MARKETING = {"campaigns": [{"nombre": "PREVENTA JULIO", "Alcance": 38666, "Impresiones": 87538, "ctr": 1.863191, "clics": 1631, "gasto": 294047.77, "cpm": 3359.087139, "costo_por_contacto_nuevo": 1077.0}, {"nombre": "Publicaci\u00f3n: \"\ud83d\udd25COMIENZA LA PREVENTA! \ud83d\udd25\"", "Alcance": 25933, "Impresiones": 62765, "ctr": 1.564566, "clics": 982, "gasto": 334991.6, "cpm": 5337.235721, "costo_por_contacto_nuevo": 2577.0}, {"nombre": "Remarketing preventa", "Alcance": 18563, "Impresiones": 77755, "ctr": 0.96071, "clics": 747, "gasto": 430789.7, "cpm": 5540.347245, "costo_por_contacto_nuevo": 3916.0}, {"nombre": "Publicaci\u00f3n: \"\ud83d\udd25EXTENDEMOS LA PREVENTA!\ud83d\udd25\"", "Alcance": 10660, "Impresiones": 18821, "ctr": 1.716168, "clics": 323, "gasto": 96644.38, "cpm": 5134.922693, "costo_por_contacto_nuevo": 1757.0}], "totales": {"alcance": 93822, "impresiones": 246879, "clics": 3683, "gasto": 1156473.45, "ctr_ponderado": 1.49, "costo_contacto": 2036, "costo_lead_kommo": 2228},
+  "frecuencias": {"PREVENTA JULIO": 2.26, "Publicación: \"🔥COMIENZA LA PREVENTA! 🔥\"": 2.42, "Remarketing preventa": 4.19, "Publicación: \"🔥EXTENDEMOS LA PREVENTA!🔥\"": 1.77}
+};
+
+const KOMMO = {
+  "leads_sin_respuesta": 65,
+  "leads_convertidos": 25,
+  "total_leads": 519,
+  "vendor_conversion": [{"nombre": "Marcelo Gomez", "leads": 210, "crm": 7, "tasa": 3.3}, {"nombre": "Mariana Calgaterra", "leads": 192, "crm": 11, "tasa": 5.7}, {"nombre": "Yamila Hardach", "leads": 112, "crm": 7, "tasa": 6.2}],
+  "weekday_counts": {"Lunes": 47, "Martes": 87, "Miércoles": 182, "Jueves": 151, "Viernes": 51, "Sábado": 0, "Domingo": 1},
+  "death_type_vendedor": {"Audio": 211, "Texto": 143, "Imagen": 53, "Link": 13, "Precio (texto)": 9},
+  "death_total": 429
+};
+
+const CATEGORY_CRM = [{"categoria":"General","leads":271,"crm":13,"tasa":4.8},{"categoria":"Envasado","leads":155,"crm":9,"tasa":5.8},{"categoria":"Cárnicos","leads":93,"crm":3,"tasa":3.2}];
+
+const REVENUE = {"ventas_confirmadas": 10, "revenue_confirmado": 39044672.47, "gasto_marketing": 1156473.45, "total_leads": 519, "pasado_crm_total": 25, "pasado_crm_matched": 5, "odoo_orders_total": 113, "odoo_revenue_total": 765081835.21, "records": [{"vendedor": "Yamila Hardach", "cliente": "L.L.C.Abas Arg S. A. S.", "fecha": "2026-07-28", "total": 3596775.0, "estatus_kommo": "PASADO A CRM"}, {"vendedor": "Marcelo Jesús Gomez", "cliente": "Cornejo, Gustavo Luis", "fecha": "2026-07-30", "total": 3577941.18, "estatus_kommo": "MARCELO"}, {"vendedor": "Mariana Calgaterra", "cliente": "Benitez, Ramon Celestino", "fecha": "2026-07-31", "total": 3596775.0, "estatus_kommo": "mARIANA"}, {"vendedor": "Marcelo Jesús Gomez", "cliente": "Isoardi, Miguel Angel", "fecha": "2026-07-31", "total": 1288235.29, "estatus_kommo": "PASADO A CRM"}, {"vendedor": "Mariana Calgaterra", "cliente": "Quiros, Carlos Daniel", "fecha": "2026-07-31", "total": 5035485.0, "estatus_kommo": "mARIANA"}, {"vendedor": "Mariana Calgaterra", "cliente": "Fracedo Sociedad Responsabilidad Limitada", "fecha": "2026-08-03", "total": 2569125.0, "estatus_kommo": "mARIANA"}, {"vendedor": "Marcelo Jesús Gomez", "cliente": "Ameghino 151 Junin S. R. L.", "fecha": "2026-08-06", "total": 6412536.0, "estatus_kommo": "PASADO A CRM"}, {"vendedor": "Mariana Calgaterra", "cliente": "Piazza, Juan Francisco", "fecha": "2026-08-07", "total": 3255000.0, "estatus_kommo": "mARIANA"}, {"vendedor": "Mariana Calgaterra", "cliente": "Comercializadora 28 De Abril S.A.", "fecha": "2026-08-10", "total": 3712800.0, "estatus_kommo": "PASADO A CRM"}, {"vendedor": "Marcelo Jesús Gomez", "cliente": "Lavarda Ramallo, Pablo Alejandro", "fecha": "2026-08-31", "total": 6000000.0, "estatus_kommo": "PASADO A CRM"}]};
+
+const INTEREST = [
+  {"nivel":"Nivel 1 · Bajo","mensajes":"1 mensaje","leads":342,"crm":14,"tasa":4.1},
+  {"nivel":"Nivel 2 · Medio","mensajes":"2 mensajes seguidos","leads":138,"crm":6,"tasa":4.3},
+  {"nivel":"Nivel 3 · Alto","mensajes":"3 o más mensajes seguidos","leads":39,"crm":5,"tasa":12.8}
+];
+
+function fmtDate(iso){
+  const [y,m,d] = iso.split('-');
+  const meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  return `${parseInt(d)} ${meses[parseInt(m)-1]}`;
+}
+const mkFmtARS = (n) => '$' + Math.round(n).toLocaleString('es-AR');
+
+// Top KPIs
+const kpis = [
+  {label:'Contactos nuevos (Meta)', value: DATA.total_nuevos_meta.toLocaleString('es-AR'), foot:'4 campañas de preventa'},
+  {label:'Leads creados (Kommo)', value: DATA.total_leads_kommo.toLocaleString('es-AR'), foot:'21 jul – 28 ago 2026'},
+  {label:'Conversión contacto → lead', value: Math.round(DATA.total_leads_kommo/DATA.total_nuevos_meta*1000)/10 + '%', foot:'Sobre contactos nuevos de Meta'},
+  {label:'Campañas activas', value: DATA.meta_campaigns.length, foot:'Todas solapadas en el tiempo'},
+];
+document.getElementById('kpiRow').innerHTML = kpis.map(k => `
+  <div class="kpi">
+    <div class="label">${k.label}</div>
+    <div class="value">${k.value}</div>
+    <div class="foot">${k.foot}</div>
+  </div>
+`).join('');
+
+// Daily chart (self-contained SVG)
+(function renderDailyChart(){
+  const wrap = document.getElementById('dailyChart');
+  const w = wrap.clientWidth || 900;
+  const h = 220;
+  const padL = 34, padR = 8, padT = 10, padB = 22;
+  const plotW = w - padL - padR;
+  const plotH = h - padT - padB;
+  const n = DATA.full_daily.length;
+  const maxVal = Math.max(...DATA.full_daily.map(d => d.leads));
+  const gap = 4;
+  const barW = (plotW / n) - gap;
+
+  const yTicks = 4;
+  let gridLines = '', yLabels = '';
+  for(let i=0;i<=yTicks;i++){
+    const val = Math.round(maxVal * i / yTicks);
+    const y = padT + plotH - (plotH * i/yTicks);
+    gridLines += `<line x1="${padL}" y1="${y}" x2="${w-padR}" y2="${y}" stroke="#EDEDEA" stroke-width="1"/>`;
+    yLabels += `<text x="${padL-8}" y="${y+3}" text-anchor="end" font-size="10.5" fill="#8A8A87" font-family="Montserrat">${val}</text>`;
+  }
+  let bars = '';
+  DATA.full_daily.forEach((d,i) => {
+    const barH = maxVal > 0 ? (d.leads / maxVal) * plotH : 0;
+    const x = padL + i * (plotW/n) + gap/2;
+    const y = padT + plotH - barH;
+    const fill = d.leads > 0 ? '#1D1D1C' : '#E7E7E4';
+    bars += `<rect x="${x}" y="${y}" width="${barW}" height="${Math.max(barH,1)}" rx="2" fill="${fill}"><title>${fmtDate(d.fecha)}: ${d.leads} leads</title></rect>`;
+  });
+  let xLabels = '';
+  const minLabelSpacing = 46; // px
+  const dayWidth = plotW / n;
+  const step = Math.max(1, Math.ceil(minLabelSpacing / dayWidth));
+  let lastLabelX = -Infinity;
+  DATA.full_daily.forEach((d,i) => {
+    const isForced = (i === n-1);
+    if(i % step === 0 || isForced){
+      const x = padL + i * (plotW/n) + (plotW/n)/2;
+      if(x - lastLabelX >= minLabelSpacing || isForced){
+        if(!(isForced && x - lastLabelX < minLabelSpacing)){
+          xLabels += `<text x="${x}" y="${h-6}" text-anchor="middle" font-size="10" fill="#8A8A87" font-family="Montserrat">${fmtDate(d.fecha)}</text>`;
+          lastLabelX = x;
+        }
+      }
+    }
+  });
+  wrap.innerHTML = `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" xmlns="http://www.w3.org/2000/svg">
+    ${gridLines}${yLabels}${bars}${xLabels}
+    <line x1="${padL}" y1="${padT+plotH}" x2="${w-padR}" y2="${padT+plotH}" stroke="#1D1D1C" stroke-width="1.5"/>
+  </svg>`;
+})();
+
+// Gantt strip
+const colorClasses = ['c1','c2','c3','c4'];
+document.getElementById('ganttChart').innerHTML = DATA.campaigns_visual.map((c,i) => `
+  <div class="gantt-row">
+    <div class="gantt-label">${c.nombre}</div>
+    <div class="gantt-track">
+      <div class="gantt-bar ${colorClasses[i]}" style="left:${c.left_pct}%; width:${c.width_pct}%;" title="${c.nombre}: ${c.creada} – ${c.fin}"></div>
+    </div>
+  </div>
+`).join('');
+document.getElementById('axisLabels').innerHTML = `<span>${fmtDate(DATA.axis_start)}</span><span>${fmtDate(DATA.axis_end)}</span>`;
+
+// Marketing KPIs + table
+const marketingKpis = [
+  {label:'Alcance total (sumado)', value: MARKETING.totales.alcance.toLocaleString('es-AR'), foot:'Puede haber solapamiento entre campañas'},
+  {label:'Impresiones totales', value: MARKETING.totales.impresiones.toLocaleString('es-AR'), foot:'CTR ponderado: ' + MARKETING.totales.ctr_ponderado + '%'},
+  {label:'Gasto total', value: mkFmtARS(MARKETING.totales.gasto), foot:'21 jul – 12 ago 2026'},
+  {label:'Costo por lead real en Kommo', value: mkFmtARS(MARKETING.totales.costo_lead_kommo), foot:'Gasto total / 519 leads'},
+];
+document.getElementById('marketingKpis').innerHTML = marketingKpis.map(k => `
+  <div class="kpi">
+    <div class="label">${k.label}</div>
+    <div class="value" style="font-size:21px;">${k.value}</div>
+    <div class="foot">${k.foot}</div>
+  </div>
+`).join('');
+document.getElementById('marketingTable').innerHTML = MARKETING.campaigns.map(c => `
+  <tr>
+    <td>${c.nombre.replace('Publicación: ','').replace(/"/g,'')}</td>
+    <td class="num">${c.Alcance.toLocaleString('es-AR')}</td>
+    <td class="num">${c.Impresiones.toLocaleString('es-AR')}</td>
+    <td class="num">${MARKETING.frecuencias[c.nombre]}</td>
+    <td class="num">${c.ctr.toFixed(2)}%</td>
+    <td class="num">${c.clics.toLocaleString('es-AR')}</td>
+    <td class="num">${mkFmtARS(c.gasto)}</td>
+    <td class="num">${mkFmtARS(c.cpm)}</td>
+    <td class="num">${mkFmtARS(c.costo_por_contacto_nuevo)}</td>
+  </tr>
+`).join('');
+
+// Campaigns table
+document.getElementById('campaignsTable').innerHTML = DATA.meta_campaigns.map(c => `
+  <tr>
+    <td>${c.nombre}</td>
+    <td>${fmtDate(c.creada)}</td>
+    <td>${c.fin === 'En curso' ? 'En curso' : fmtDate(c.fin)}</td>
+    <td class="num">${c.total}</td>
+    <td class="num">${c.nuevos}</td>
+  </tr>
+`).join('');
+document.getElementById('totContactos').textContent = DATA.total_contactos_meta;
+document.getElementById('totNuevos').textContent = DATA.total_nuevos_meta;
+
+// Category table (no bar) with CRM counts
+document.getElementById('categoryTable').innerHTML = CATEGORY_CRM.map(c => `
+  <tr>
+    <td>${c.categoria}</td>
+    <td class="num">${c.leads}</td>
+    <td class="num">${c.crm}</td>
+    <td class="num">${c.tasa}%</td>
+  </tr>
+`).join('');
+
+// Template table
+const totalTpl = Object.values(DATA.template_breakdown).reduce((a,b)=>a+b,0);
+const sortedTpl = Object.entries(DATA.template_breakdown).sort((a,b)=>b[1]-a[1]);
+document.getElementById('templateTable').innerHTML = sortedTpl.map(([name,count]) => `
+  <tr>
+    <td>${name}</td>
+    <td class="num">${count}</td>
+    <td class="num">${Math.round(count/totalTpl*1000)/10}%</td>
+  </tr>
+`).join('');
+
+// Kommo KPIs (reduced set)
+const kommoKpis = [
+  {label:'Leads sin respuesta del cliente al final', value: KOMMO.leads_sin_respuesta, foot:'El vendedor quedó esperando'},
+  {label:'Leads convertidos (Pasado a CRM)', value: KOMMO.leads_convertidos, foot:`De ${KOMMO.total_leads} leads totales`},
+];
+document.getElementById('kommoKpis').innerHTML = kommoKpis.map(k => `
+  <div class="kpi">
+    <div class="label">${k.label}</div>
+    <div class="value" style="font-size:24px;">${k.value}</div>
+    <div class="foot">${k.foot}</div>
+  </div>
+`).join('');
+
+// Vendor conversion bars — width = literal tasa %, not relative to max
+document.getElementById('vendorConvBars').innerHTML = KOMMO.vendor_conversion
+  .sort((a,b)=>b.tasa-a.tasa)
+  .map(v => `
+    <div class="row">
+      <div class="name">${v.nombre.split(' ')[0]}</div>
+      <div class="track"><div class="fill" style="width:${v.tasa}%"></div></div>
+      <div class="count">${v.tasa}%</div>
+    </div>
+  `).join('');
+
+// Weekday bars — width = share of total leads
+document.getElementById('weekdayBars').innerHTML = Object.entries(KOMMO.weekday_counts).map(([name,count]) => {
+  const pct = count/KOMMO.total_leads*100;
+  return `
+  <div class="row">
+    <div class="name">${name}</div>
+    <div class="track"><div class="fill dark" style="width:${pct}%"></div></div>
+    <div class="count">${count} (${pct.toFixed(1)}%)</div>
+  </div>`;
+}).join('');
+
+// Death type bars — width = share of the 429 vendor-last-message conversations
+document.getElementById('deathBars').innerHTML = Object.entries(KOMMO.death_type_vendedor)
+  .sort((a,b)=>b[1]-a[1])
+  .map(([name,count]) => {
+    const pct = count/KOMMO.death_total*100;
+    return `
+    <div class="row">
+      <div class="name">${name}</div>
+      <div class="track"><div class="fill" style="width:${pct}%"></div></div>
+      <div class="count">${count} (${pct.toFixed(1)}%)</div>
+    </div>`;
+  }).join('');
+
+// Interest index table (moved into Kommo section)
+document.getElementById('interestTable').innerHTML = INTEREST.map(i => `
+  <tr>
+    <td>${i.nivel}</td>
+    <td>${i.mensajes}</td>
+    <td class="num">${i.leads}</td>
+    <td class="num">${i.crm}</td>
+    <td class="num">${i.tasa}%</td>
+  </tr>
+`).join('');
+
+// ===== Revenue attribution (Kommo x Odoo) =====
+const revFmtARS = (n) => '$' + Math.round(n).toLocaleString('es-AR');
+
+const revenueKpis = [
+  {label:'Ventas confirmadas', value: REVENUE.ventas_confirmadas, foot:`De ${REVENUE.total_leads} leads totales`},
+  {label:'Retorno tras campaña', value: revFmtARS(REVENUE.revenue_confirmado), foot:'Suma de las ventas matcheadas'},
+  {label:'Retorno vs. gasto de marketing', value: (REVENUE.revenue_confirmado/REVENUE.gasto_marketing).toFixed(1) + 'x', foot:'Retorno tras campaña / gasto en Meta Ads'},
+  {label:'"Pasado a CRM" con venta confirmada', value: `${REVENUE.pasado_crm_matched} de ${REVENUE.pasado_crm_total}`, foot:'20% de los marcados como pasados a CRM'},
+];
+document.getElementById('revenueKpis').innerHTML = revenueKpis.map(k => `
+  <div class="kpi">
+    <div class="label">${k.label}</div>
+    <div class="value" style="font-size:21px;">${k.value}</div>
+    <div class="foot">${k.foot}</div>
+  </div>
+`).join('');
+
+document.getElementById('revenueTable').innerHTML = [...REVENUE.records].sort((a,b)=>a.vendedor.localeCompare(b.vendedor)).map(r => `
+  <tr>
+    <td>${r.vendedor}</td>
+    <td>${r.cliente}</td>
+    <td>${fmtDate(r.fecha)}</td>
+    <td class="num">${revFmtARS(r.total)}</td>
+    <td>${r.estatus_kommo}</td>
+  </tr>
+`).join('');
+document.getElementById('revenueTotal').textContent = revFmtARS(REVENUE.revenue_confirmado);
+</script>
+
+</body>
+</html>
