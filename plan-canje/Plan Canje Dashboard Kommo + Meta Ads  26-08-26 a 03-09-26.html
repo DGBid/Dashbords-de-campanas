@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Análisis · Plan Canje — Meta Ads + Kommo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Gotham es una fuente de pago (Hoefler&Co). Se usa Montserrat como proxy geométrico
+     gratuito. Si tenés la licencia de Gotham, cambiá 'Montserrat' por 'Gotham' abajo. -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --amarillo:#FFCC29; --gris:#1D1D1C; --negro:#000000;
+    --bg:#F4F4F2; --card:#FFFFFF; --ink:#1D1D1C; --ink-soft:#6E6E6A;
+    --rule:#E3E3DF; --track:#EDEDEA;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Montserrat',-apple-system,Segoe UI,sans-serif;background:var(--bg);
+    color:var(--ink);padding:36px 44px 60px}
+  .head{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+    border-bottom:3px solid var(--gris);padding-bottom:20px;margin-bottom:26px}
+  .head-left{display:flex;flex-direction:column;gap:4px}
+  .eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  .periodo{font-size:12px;color:var(--ink-soft);font-weight:600;margin-top:2px}
+  h1{font-weight:800;font-size:30px;margin:0;letter-spacing:-.4px;text-transform:uppercase}
+  h1 .amar{color:var(--gris);border-bottom:5px solid var(--amarillo);padding-bottom:1px}
+  .logo{height:52px;width:auto;display:block}
+  .section-label{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:var(--ink-soft);
+    font-weight:700;margin:34px 2px 12px;display:flex;align-items:center;gap:8px}
+  .section-label::before{content:"";width:16px;height:3px;background:var(--amarillo);border-radius:2px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:18px}
+  .grid-1{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:1400px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:1100px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:700px){.grid,.grid-2,.grid-3{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:22px 24px;
+    position:relative;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .card::before{content:"";position:absolute;left:0;top:0;height:4px;width:52px;background:var(--amarillo);
+    border-radius:8px 0 8px 0}
+  .card h2{font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--gris);
+    margin:6px 0 3px;font-weight:700}
+  .explica{font-size:11.5px;color:var(--ink-soft);margin:0 0 16px;line-height:1.5;font-weight:500}
+  .kpicard{background:var(--gris);border-radius:8px;padding:24px 26px;margin-bottom:18px}
+  .kpicard.secundario{background:#2b2b29}
+  .kpirow{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+  .kpi{border-right:1px solid rgba(255,255,255,.15);padding-right:16px}
+  .kpi:last-child{border-right:none}
+  .kpi .num{font-size:36px;font-weight:800;color:var(--amarillo);line-height:1;letter-spacing:-.5px}
+  .kpi .cap{color:#C9C9C4;font-size:11px;margin-top:7px;letter-spacing:.6px;text-transform:uppercase;font-weight:600}
+  .row{display:flex;align-items:center;gap:8px;margin:9px 0}
+  .lbl{flex:1 1 0;min-width:0;font-size:12px;line-height:1.3;font-weight:500}
+  .val{width:120px;flex:0 0 120px;text-align:right;font-variant-numeric:tabular-nums;
+    font-size:11.5px;color:var(--ink-soft);font-weight:600}
+  .track{width:82px;flex:0 0 82px;height:11px;background:var(--track);border-radius:6px;overflow:hidden}
+  .bar{display:block;height:100%;background:var(--gris);border-radius:6px}
+  .card:nth-child(2n) .bar{background:var(--amarillo)}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th,td{padding:9px 6px;text-align:right;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+  th:first-child,td.vn{text-align:left;font-variant-numeric:normal;font-weight:600}
+  th{color:var(--ink-soft);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.4px}
+  tbody tr:hover{background:#FBFBFA}
+  .note{color:var(--ink-soft);font-size:11.5px;margin-top:12px;line-height:1.6;border-top:1px solid var(--rule);
+    padding-top:10px;font-weight:500}
+  .span2{grid-column:1/-1}
+  .funnel-card .val{width:150px;flex:0 0 150px}
+  @media (max-width:640px){.track{width:60px;flex-basis:60px} .val{width:90px;flex-basis:90px} .kpirow{grid-template-columns:repeat(2,1fr);row-gap:18px}
+    .kpi{border-right:none}}
+</style></head><body>
+
+<div class="head">
+  <div class="head-left">
+    <div class="eyebrow">Ficha de análisis de campaña · Meta Ads + Kommo</div>
+    <h1><span class="amar">Plan Canje</span></h1>
+    <div class="periodo">Período analizado: 25/08/2026 — 03/09/2026</div>
+  </div>
+</div>
+
+<div class="kpicard"><div class="kpirow">
+  <div class="kpi"><div class="num">$239.373</div><div class="cap">Inversión (ARS)</div></div>
+  <div class="kpi"><div class="num">165</div><div class="cap">Leads únicos</div></div>
+  <div class="kpi"><div class="num">23</div><div class="cap">Pasados a CRM</div></div>
+  <div class="kpi"><div class="num">13,9%</div><div class="cap">Tasa de conversión</div></div>
+  <div class="kpi"><div class="num">$1.451</div><div class="cap">Costo por lead</div></div>
+  <div class="kpi"><div class="num">6,1%</div><div class="cap">Alta intención (3-5)</div></div>
+</div></div>
+
+<div class="section-label">Pauta e ingreso de leads</div>
+<div class="grid grid-1">
+  <div class="card funnel-card"><h2>Del clic a la conversación de WhatsApp</h2>
+    <p class="explica">Recorrido completo desde la impresión del anuncio hasta el lead registrado en Kommo. % sobre impresiones totales.</p>
+    <div class="row"><div class="lbl">Impresiones</div><div class="track"><div class="bar" style="width:100.0%"></div></div><div class="val">67.389 (100,0%)</div></div><div class="row"><div class="lbl">Alcance</div><div class="track"><div class="bar" style="width:61.2%"></div></div><div class="val">41.224 (61,2%)</div></div><div class="row"><div class="lbl">Clics</div><div class="track"><div class="bar" style="width:2.8%"></div></div><div class="val">1.874 (2,8%)</div></div><div class="row"><div class="lbl">Contactos de mensajes (Meta)</div><div class="track"><div class="bar" style="width:2.0%"></div></div><div class="val">233 (0,3%)</div></div><div class="row"><div class="lbl">Leads en Kommo</div><div class="track"><div class="bar" style="width:2.0%"></div></div><div class="val">165 (0,2%)</div></div>
+    <div class="note">CPM $3.552 · CTR 2,8% · CPC $128 · Conversión contacto Meta → lead Kommo: 70,8% (algunos contactos que Meta no cuenta como "nuevos" generan igual una conversación distinta en Kommo, por eso puede superar el 100% sobre los nuevos).</div>
+  </div>
+</div>
+
+<div class="grid grid-2">
+  <div class="card"><h2>Diagnóstico de la pauta (Meta Ads)</h2>
+    <p class="explica">Qué tan eficiente fue el anuncio en sí, más allá de si generó lead o no.</p>
+    <table><thead><tr><th>Métrica</th><th>Valor</th><th>Lectura</th></tr></thead><tbody>
+<tr><td class='vn'>Frecuencia (impresiones / alcance)</td><td>1.63</td><td>veces que la vio en promedio cada persona</td></tr>
+<tr><td class='vn'>CPM</td><td>$3.552</td><td>costo por mil impresiones</td></tr>
+<tr><td class='vn'>CTR</td><td>2,8%</td><td>de las impresiones terminó en clic</td></tr>
+<tr><td class='vn'>CPC</td><td>$128</td><td>costo por clic</td></tr>
+<tr><td class='vn'>Costo por contacto de mensaje</td><td>$1.027</td><td>inversión / contactos totales</td></tr>
+<tr><td class='vn'>Costo por contacto nuevo</td><td>$1.308</td><td>inversión / contactos nuevos</td></tr>
+<tr><td class='vn'>% contactos nuevos vs. totales</td><td>78,5%</td><td>el resto ya había escrito antes</td></tr>
+<tr><td class='vn'>Costo por lead en Kommo</td><td>$1.451</td><td>inversión / 165 leads</td></tr>
+</tbody></table>
+    <div class="note">Un solo anuncio activo en el período — todavía no hay con qué comparar frecuencia/CTR entre creatividades. Cuando corran 2+ anuncios en simultáneo, acá se podría marcar fatiga de creatividad (frecuencia alta + CTR bajo) y concentración de gasto en el de peor rendimiento.</div>
+  </div>
+
+  <div class="card"><h2>Leads por día</h2>
+    <p class="explica">Primera conversación de cada lead único, día por día del período de campaña.</p>
+    <div class="row"><div class="lbl">25/08</div><div class="track"><div class="bar" style="width:0%"></div></div><div class="val">0 leads</div></div><div class="row"><div class="lbl">26/08</div><div class="track"><div class="bar" style="width:60.526315789473685%"></div></div><div class="val">23 leads</div></div><div class="row"><div class="lbl">27/08</div><div class="track"><div class="bar" style="width:100.0%"></div></div><div class="val">38 leads</div></div><div class="row"><div class="lbl">28/08</div><div class="track"><div class="bar" style="width:23.684210526315788%"></div></div><div class="val">9 leads</div></div><div class="row"><div class="lbl">29/08</div><div class="track"><div class="bar" style="width:2.631578947368421%"></div></div><div class="val">1 leads</div></div><div class="row"><div class="lbl">30/08</div><div class="track"><div class="bar" style="width:0%"></div></div><div class="val">0 leads</div></div><div class="row"><div class="lbl">31/08</div><div class="track"><div class="bar" style="width:84.21052631578947%"></div></div><div class="val">32 leads</div></div><div class="row"><div class="lbl">01/09</div><div class="track"><div class="bar" style="width:78.94736842105263%"></div></div><div class="val">30 leads</div></div><div class="row"><div class="lbl">02/09</div><div class="track"><div class="bar" style="width:42.10526315789473%"></div></div><div class="val">16 leads</div></div><div class="row"><div class="lbl">03/09</div><div class="track"><div class="bar" style="width:42.10526315789473%"></div></div><div class="val">16 leads</div></div>
+    <div class="note">29 y 30/08 (fin de semana) son los días más flojos — patrón conocido en la cuenta.</div>
+  </div>
+</div>
+
+<div class="section-label">Calidad de la conversación (Kommo)</div>
+<div class="grid grid-3">
+  <div class="card"><h2>Tasa de respuesta del cliente por tipo de mensaje</h2>
+    <p class="explica">Qué formato de mensaje del vendedor consigue que el cliente conteste de inmediato.</p>
+    <div class="row"><div class="lbl">Audio</div><div class="track"><div class="bar" style="width:54.2%"></div></div><div class="val">54,2% (72)</div></div><div class="row"><div class="lbl">Link</div><div class="track"><div class="bar" style="width:18.8%"></div></div><div class="val">18,8% (48)</div></div><div class="row"><div class="lbl">Multimedia</div><div class="track"><div class="bar" style="width:9.4%"></div></div><div class="val">9,4% (85)</div></div><div class="row"><div class="lbl">Texto</div><div class="track"><div class="bar" style="width:25.7%"></div></div><div class="val">25,7% (452)</div></div><div class="row"><div class="lbl">Automático</div><div class="track"><div class="bar" style="width:43.0%"></div></div><div class="val">43,0% (93)</div></div>
+    <div class="note">Cuenta como respuesta que el mensaje inmediatamente siguiente sea del cliente. Favorece al último ítem de una ráfaga.</div>
+  </div>
+
+  <div class="card"><h2>Conversión a CRM por vendedor</h2>
+    <p class="explica">Qué proporción de los leads de cada vendedor terminó pasando a venta por WhatsApp personal (CRM).</p>
+    <div class="row"><div class="lbl">Mariana Calgaterra</div><div class="track"><div class="bar" style="width:7.0%"></div></div><div class="val">7,0% (5/71)</div></div><div class="row"><div class="lbl">Marcelo Gomez</div><div class="track"><div class="bar" style="width:28.0%"></div></div><div class="val">28,0% (14/50)</div></div><div class="row"><div class="lbl">Yamila Hardach</div><div class="track"><div class="bar" style="width:10.3%"></div></div><div class="val">10,3% (4/39)</div></div><div class="row"><div class="lbl">Sin asignar</div><div class="track"><div class="bar" style="width:0.0%"></div></div><div class="val">0,0% (0/4)</div></div><div class="row"><div class="lbl">Felipe Gomez Smith</div><div class="track"><div class="bar" style="width:0.0%"></div></div><div class="val">0,0% (0/1)</div></div>
+  </div>
+
+  <div class="card"><h2>Avance según cantidad de mensajes en la ráfaga</h2>
+    <p class="explica">Si mandar muchos mensajes seguidos de golpe ayuda o satura al cliente.</p>
+    <div class="row"><div class="lbl">≤2 mensajes</div><div class="track"><div class="bar" style="width:57.0%"></div></div><div class="val">57,0% (223)</div></div><div class="row"><div class="lbl">3 mensajes</div><div class="track"><div class="bar" style="width:60.9%"></div></div><div class="val">60,9% (23)</div></div><div class="row"><div class="lbl">4 mensajes</div><div class="track"><div class="bar" style="width:60.0%"></div></div><div class="val">60,0% (50)</div></div><div class="row"><div class="lbl">5+ mensajes</div><div class="track"><div class="bar" style="width:16.7%"></div></div><div class="val">16,7% (6)</div></div>
+    <div class="note">Ráfaga = mensajes consecutivos del vendedor (excluye automáticos) antes de que hable el cliente.</div>
+  </div>
+
+  <div class="card"><h2>Índice de intención del lead (0-5)</h2>
+    <p class="explica">Qué tan "calientes" llegan los leads de esta campaña, según lo que piden.</p>
+    <div class="row"><div class="lbl">Nivel 0 — Curiosidad (mensaje genérico)</div><div class="track"><div class="bar" style="width:67.9%"></div></div><div class="val">67,9%</div></div><div class="row"><div class="lbl">Nivel 1 — Interés genérico (precio sin especificar)</div><div class="track"><div class="bar" style="width:3.0%"></div></div><div class="val">3,0%</div></div><div class="row"><div class="lbl">Nivel 2 — Interés específico (modelo/producto puntual)</div><div class="track"><div class="bar" style="width:23.0%"></div></div><div class="val">23,0%</div></div><div class="row"><div class="lbl">Nivel 3 — Evaluación (2+ datos técnicos juntos)</div><div class="track"><div class="bar" style="width:1.2%"></div></div><div class="val">1,2%</div></div><div class="row"><div class="lbl">Nivel 4 — Compra potencial (financiación/envío)</div><div class="track"><div class="bar" style="width:3.0%"></div></div><div class="val">3,0%</div></div><div class="row"><div class="lbl">Nivel 5 — Alta intención (dato de negocio/pago)</div><div class="track"><div class="bar" style="width:1.8%"></div></div><div class="val">1,8%</div></div>
+    <div class="note">Se calcula sobre todos los mensajes del cliente (todas sus sesiones), no solo el primero.</div>
+  </div>
+
+  <div class="card"><h2>Dónde murió la conversación</h2>
+    <p class="explica">En qué momento se corta la charla (leads que no pasaron a CRM), para ver dónde está la fuga.</p>
+    <div class="row"><div class="lbl">Después de texto</div><div class="track"><div class="bar" style="width:46.1%"></div></div><div class="val">46,1% (76)</div></div><div class="row"><div class="lbl">Después de audio</div><div class="track"><div class="bar" style="width:15.2%"></div></div><div class="val">15,2% (25)</div></div><div class="row"><div class="lbl">Última palabra del cliente</div><div class="track"><div class="bar" style="width:12.1%"></div></div><div class="val">12,1% (20)</div></div><div class="row"><div class="lbl">Después de link</div><div class="track"><div class="bar" style="width:6.7%"></div></div><div class="val">6,7% (11)</div></div><div class="row"><div class="lbl">Después de multimedia</div><div class="track"><div class="bar" style="width:6.1%"></div></div><div class="val">6,1% (10)</div></div>
+    <div class="note">No incluye a los leads que convirtieron a CRM.</div>
+  </div>
+
+  <div class="card"><h2>Producto consultado (desvío de campaña)</h2>
+    <p class="explica">Si la campaña de Plan Canje termina generando consultas por otros productos del catálogo.</p>
+    <div class="row"><div class="lbl">Plan Canje</div><div class="track"><div class="bar" style="width:67.3%"></div></div><div class="val">67,3%</div></div><div class="row"><div class="lbl">Fileteadora</div><div class="track"><div class="bar" style="width:9.7%"></div></div><div class="val">9,7%</div></div><div class="row"><div class="lbl">Empanadora</div><div class="track"><div class="bar" style="width:8.5%"></div></div><div class="val">8,5%</div></div><div class="row"><div class="lbl">Genérico / no especifica producto</div><div class="track"><div class="bar" style="width:6.7%"></div></div><div class="val">6,7%</div></div><div class="row"><div class="lbl">Horno</div><div class="track"><div class="bar" style="width:1.8%"></div></div><div class="val">1,8%</div></div><div class="row"><div class="lbl">Bombo</div><div class="track"><div class="bar" style="width:1.2%"></div></div><div class="val">1,2%</div></div>
+    <div class="note">Producto anunciado: Plan Canje. Calculado solo sobre mensajes del cliente.</div>
+  </div>
+</div>
+
+<div class="grid grid-1">
+  <div class="card"><h2>Alcance por vendedor (a cuántos leads distintos les mandó cada tipo)</h2>
+    <p class="explica">A cuántos leads distintos cada vendedor les envió al menos un mensaje de cada formato.</p>
+    <table><thead><tr><th>Vendedor</th><th>Total leads</th><th>Audio</th><th>Link</th><th>Multimedia</th><th>Texto</th><th>Automático</th></tr></thead><tbody><tr><td class='vn'>Marcelo Gomez</td><td><b>50</b></td><td>46</td><td>9</td><td>44</td><td>50</td><td>10</td></tr><tr><td class='vn'>Yamila Hardach</td><td><b>39</b></td><td>3</td><td>8</td><td>8</td><td>39</td><td>1</td></tr><tr><td class='vn'>Mariana Calgaterra</td><td><b>71</b></td><td>2</td><td>20</td><td>9</td><td>71</td><td>0</td></tr><tr><td class='vn'>Felipe Gomez Smith</td><td><b>1</b></td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr></tbody></table>
+  </div>
+
+  <div class="card"><h2>Efectividad por vendedor, controlando por intención del lead</h2>
+    <p class="explica">Compara a los vendedores contra leads de calidad parecida, no en bruto. % = pasó a CRM.</p>
+    <table><thead><tr><th>Vendedor</th><th>Genérico (0)</th><th>Solo precio (1)</th><th>Intermedio (2-3)</th><th>Alta intención (4-5)</th><th>Promedio general</th></tr></thead><tbody><tr><td class='vn'>Marcelo Gomez</td><td>8% (36)</td><td>50% (2)</td><td>75% (8)</td><td>100% (4)</td><td>28% (50)</td></tr><tr><td class='vn'>Yamila Hardach</td><td>12% (25)</td><td>0% (1)</td><td>0% (11)</td><td>50% (2)</td><td>10% (39)</td></tr><tr><td class='vn'>Mariana Calgaterra</td><td>6% (47)</td><td>0% (2)</td><td>5% (20)</td><td>50% (2)</td><td>7% (71)</td></tr><tr><td class='vn'>Felipe Gomez Smith</td><td>—</td><td>—</td><td>0% (1)</td><td>—</td><td>0% (1)</td></tr></tbody></table>
+  </div>
+</div>
+
+<div class="note" style="margin-top:28px;border-top:3px solid var(--gris);padding-top:14px;">
+  BID Argentina S.A. · Fuentes: export de Meta Ads y Kommo CRM (etiqueta "META Plan canje") para el período indicado. Sin cruce con Odoo todavía — dada la ventana de venta industrial (~19 días promedio lead-a-cierre), la facturación real de esta tanda de leads puede aparecer en semanas posteriores.
+</div>
+
+</body></html>
